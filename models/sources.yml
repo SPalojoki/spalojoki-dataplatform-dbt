@@ -1,0 +1,17 @@
+version: 2
+
+sources:
+  - name: sdp_landing
+    schema: "analytics__landing"
+    tables:
+      - name: electricity_prices
+        description: "Hourly electricity price data fetched from API"
+        columns:
+          - name: start_date
+            description: "Start datetime of the price period."
+          - name: end_date
+            description: "End datetime of the price period."
+          - name: price
+            description: "Price of electricity in snt/kWh."
+          - name: sdp_metadata
+            description: "SPalojoki Dataplatform metadata"
