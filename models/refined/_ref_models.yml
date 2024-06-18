@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: ref_electricity_prices
+    columns:
+      - name: period_start_date
+        description: Start date of the period in Helsinki timezone
+        tests: [not_null]
+      - name: period_start_time
+        description: Start time of the period in Helsinki timezone
+        tests: [not_null]
+      - name: period_end_date
+        description: End date of the period in Helsinki timezone
+        tests: [not_null]
+      - name: period_end_time
+        description: End time of the period in Helsinki timezone
+        tests: [not_null]
+      - name: price
+        description: Electricity price in snt/kWh
+        tests: [not_null]
+      - name: sdp_metadata
+        description: SPalojoki Dataplatform metadata
+        tests: [not_null]
