@@ -10,6 +10,13 @@ This DBT project is based on the *local* DBT-core and dbt-bigquery adapter.
 
 ### Setting the local environment up for the first time
 
+#### Prerequisites
+
+- Python
+- Google Cloud CLI
+
+#### Steps
+
 1. Create a Python venv for the dbt project in a desired location and activate it.
 
     ```
@@ -25,7 +32,7 @@ This DBT project is based on the *local* DBT-core and dbt-bigquery adapter.
     python -m pip install dbt-bigquery
     ```
 
-3. Create a following `profiles.yml` file into `/home/spalojoki/.dbt` directory and append the missing values:
+3. Create a following `profiles.yml` file into `/Users/{user}/.dbt` directory and append the missing values.
 
     ```
     spalojoki_dataplatform:
@@ -34,12 +41,19 @@ This DBT project is based on the *local* DBT-core and dbt-bigquery adapter.
             dev:
                 type: bigquery
                 method: oauth
-                project: GCP_PROJECT_ID
+                project: {{GCP_PROJECT_ID}}
                 dataset: {{initials}}__analytics # Must match the personal dev dataset
                 threads: 4 
     ```
 
-    The config used above uses Google Cloud CLI for the authentication. If willing to use other authentication method or cannot install `gcloud`, refer dbt docs [here](https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup).
+    The config used above uses Google Cloud CLI for the authentication. Set the CLI Application Default Credentials by running.
+    ```
+    gcloud auth application-default login
+    ```
+
+    If necessary, refer to Google Cloud Documentation [here](https://cloud.google.com/docs/authentication/provide-credentials-adc#how-to).
+    
+    If willing to use other authentication method or cannot install `gcloud`, refer dbt docs [here](https://docs.getdbt.com/docs/core/connect-data-platform/bigquery-setup).
 
 
 4. Check the configuration using `dbt debug`. If everything is okay, you are good to go!
