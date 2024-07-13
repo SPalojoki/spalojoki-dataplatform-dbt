@@ -26,7 +26,7 @@ This DBT project is based on the *local* DBT-core and dbt-bigquery adapter.
 
     Make sure in .gitignore that the venv directory doesn't get pushed to the repository if stored in the project root.
 
-2. Install dbt-core an dbt-bigquery adapter
+2. Install dbt-core and dbt-bigquery adapter
 
     ```
     python -m pip install dbt-bigquery
