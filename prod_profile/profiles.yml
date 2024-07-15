@@ -3,7 +3,7 @@ spalojoki_dataplatform:
     outputs:
         prod:
             type: bigquery
-            method: oauth
+            method: oauth-secrets
             project: "{{ env_var('GCP_PROJECT_ID') }}"
             dataset: analytics
             threads: 4
