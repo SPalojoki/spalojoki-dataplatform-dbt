@@ -1,8 +1,9 @@
-target: prod
-outputs:
-    prod:
-        type: bigquery
-        method: oauth
-        project: "{{ env_var('GCP_PROJECT_ID') }}"
-        dataset: analytics
-        threads: 4
+spalojoki_dataplatform:
+    target: prod
+    outputs:
+        prod:
+            type: bigquery
+            method: oauth
+            project: "{{ env_var('GCP_PROJECT_ID') }}"
+            dataset: analytics
+            threads: 4
