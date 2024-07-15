@@ -3,8 +3,8 @@ spalojoki_dataplatform:
     outputs:
         prod:
             type: bigquery
-            method: oauth-secrets
+            method: service-account
             project: "{{ env_var('GCP_PROJECT_ID') }}"
             dataset: analytics
             threads: 4
-            token: "{{ env_var('GCP_TOKEN') }}"
+            keyfile: "{{ env_var('SAK_PATH') }}"
