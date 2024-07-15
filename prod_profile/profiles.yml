@@ -7,3 +7,4 @@ spalojoki_dataplatform:
             project: "{{ env_var('GCP_PROJECT_ID') }}"
             dataset: analytics
             threads: 4
+            token: "{{ env_var('GCP_TOKEN') }}"
