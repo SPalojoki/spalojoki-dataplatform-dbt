@@ -16,7 +16,8 @@ only_start_time as (
 )
 
 select
-  *
+  * except (sdp_metadata),
+  {{ cast_published_at('sdp_metadata') }}
 from
   only_start_time
 order by date desc, hour desc
