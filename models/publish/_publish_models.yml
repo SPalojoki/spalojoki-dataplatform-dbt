@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: hourly_electricity_prices
+    description: This model provides hourly electricity prices in Finland.
+    columns:
+      - name: date
+        description: The date of the electricity price record.
+      - name: hour
+        description: The starting hour of the electricity price record.
+      - name: price
+        description: The electricity price at the given date and hour in euro-cents.
+      - name: sdp_metadata
+        description: SPalojoki Dataplatform metadata
+
+  - name: daily_electricity_price_avgs
+    description: This model provides daily electricity price averages and rolling averages in Finland.
+    columns:
+      - name: date
+        description: The date of the daily electricity price average record.
+      - name: avg_total
+        description: The average electricity price for the entire day.
+      - name: rolling_avg_total_7d
+        description: The 7-day rolling average of the entire day electricity price.
+      - name: rolling_avg_total_30d
+        description: The 30-day rolling average of the entire day electricity price.
+      - name: avg_day
+        description: The average electricity price during the day (hours 8-24) for the given date.
+      - name: rolling_avg_day_7d
+        description: The 7-day rolling average of the day (hours 8-24) electricity price.
+      - name: rolling_avg_day_30d
+        description: The 30-day rolling average of the day (hours 8-24) electricity price.
+      - name: avg_night
+        description: The average electricity price during the night (hours 0-8) for the given date.
+      - name: rolling_avg_night_7d
+        description: The 7-day rolling average of the night (hours 0-8) electricity price.
+      - name: rolling_avg_night_30d
+        description: The 30-day rolling average of the night (hours 0-8) electricity price.
+      - name: published_at
+        description: SPalojoki Dataplatform metadata
