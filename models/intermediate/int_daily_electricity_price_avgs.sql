@@ -23,6 +23,7 @@ averages as (
     round(avg(price), 2) as avg_total,
     round(avg(case when time_of_day = 'day' then price end), 2) as avg_day,
     round(avg(case when time_of_day = 'night' then price end), 2) as avg_night,
+    count(*) as num_records,
     any_value(sdp_metadata) as sdp_metadata
   from with_time_of_day
   group by date

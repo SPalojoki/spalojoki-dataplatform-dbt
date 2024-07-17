@@ -5,7 +5,7 @@ daily_electricity_price_avgs as (
   from {{ ref('int_daily_electricity_price_avgs') }}
 ),
 
-with_rolling_avgs as(
+with_rolling_avgs as (
   select
     date,
     avg_total,
@@ -19,6 +19,10 @@ with_rolling_avgs as(
     round(avg(avg_night) over (order by date rows between 29 preceding and current row), 2) as rolling_avg_night_30d,
     sdp_metadata
   from daily_electricity_price_avgs
+  -- Due to the time zone difference between NordPool and Helsinki,
+  -- next day's data includes an additional hour from the following day
+  -- Let's exclude incomplete days from the averages.
+  where num_records != 1
 )
 
 select
