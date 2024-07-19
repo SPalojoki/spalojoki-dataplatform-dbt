@@ -56,7 +56,7 @@ The Staging dataset contains dbt models that pull data from the Landing dataset 
 
 #### `Refined`
 
-The Refined dataset represents the silver layer. This dataset contains models that structure data in 3rd Normal Form (3NF) or similar formats. These models are designed to ensure data consistency and quality, making the data more reusable for downstream processing.
+The Refined dataset represents the silver layer. This dataset contains models that structure data in 3rd Normal Form (3NF) or 3NF-like models. These models are designed to ensure data consistency and quality, making the data more reusable for downstream processing.
 
 #### `Publish`
 
@@ -170,8 +170,8 @@ dbt run --select +my_model
 
 ### Production Deployment
 
-Daily production builds are orchestrated using Airflow, with the DAGs defined in the spalojoki-dataplatform-composer repository.
+Daily production builds are orchestrated using Airflow, with the DAGs defined in the spalojoki-dataplatform-composer repository. The production environment `dbt profile` is stored in `prod_profile` directory of this repository.
 
 The `main` branch serves as the source for production deployment. Changes merged into main are automatically applied during the next daily dbt build or after the subsequent data ingestion job. If you need to apply changes immediately to production, you can manually trigger the `daily_dbt_build` DAG in Airflow.
 
-For details on accessing and configuring Airflow, refer to the [spalojoki-infrastructure](https://github.com/SPalojoki/spalojoki-infrastructure) repository .
+For details on accessing and configuring Airflow, refer to the [spalojoki-infrastructure](https://github.com/SPalojoki/spalojoki-infrastructure) repository.
