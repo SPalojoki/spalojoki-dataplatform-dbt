@@ -15,3 +15,42 @@ sources:
             description: "Price of electricity in snt/kWh."
           - name: sdp_metadata
             description: "SPalojoki Dataplatform metadata"
+      - name: netatmo_weather_readings
+        description: "Weather readings from Netatmo on-premise weather stations"
+        columns:
+          - name: _id
+            description: "Unique identifier for the device."
+          - name: date_setup
+            description: "Timestamp when the device was set up."
+          - name: last_setup
+            description: "Timestamp of the last setup for the device."
+          - name: type
+            description: "Type of the device."
+          - name: last_status_store
+            description: "Timestamp of the last status store."
+          - name: module_name
+            description: "Name of the module."
+          - name: firmware
+            description: "Firmware version of the device."
+          - name: wifi_status
+            description: "Wi-Fi status indicator."
+          - name: reachable
+            description: "Boolean indicating if the device is reachable."
+          - name: co2_calibrating
+            description: "Boolean indicating if the CO2 sensor is calibrating."
+          - name: data_type
+            description: "List of weather data types associated with the device."
+          - name: place
+            description: "JSON object containing place information."
+          - name: station_name
+            description: "Name of the station."
+          - name: home_id
+            description: "Identifier for the home."
+          - name: home_name
+            description: "Name of the home."
+          - name: dashboard_data
+            description: "JSON object containing weather sensor data."
+          - name: modules
+            description: "List of modules as JSON objects."
+          - name: sdp_metadata
+            description: "SPalojoki Dataplatform metadata."
