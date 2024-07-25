@@ -21,3 +21,142 @@ models:
       - name: sdp_metadata
         description: SPalojoki Dataplatform metadata
         tests: [not_null]
+  - name: ref_netatmo_homes
+    columns:
+      - name: id
+        description: Unique identifier for the Netatmo home
+        tests: [not_null]
+      - name: name
+        description: Name of the Netatmo home
+        tests: [not_null]
+      - name: city
+        description: City where the Netatmo home is located
+        tests: [not_null]
+      - name: country
+        description: Country where the Netatmo home is located
+        tests: [not_null]
+      - name: timezone
+        description: Timezone of the Netatmo home
+        tests: [not_null]
+      - name: latitude
+        description: Latitude coordinate of the Netatmo home location
+        tests: [not_null]
+      - name: longitude
+        description: Longitude coordinate of the Netatmo home location
+        tests: [not_null]
+      - name: altitude
+        description: Altitude of the Netatmo home location in meters
+        tests: [not_null]
+      - name: sdp_metadata
+        description: SPalojoki Dataplatform metadata
+        tests: [not_null]
+  - name: ref_netatmo_main_modules
+    columns:
+      - name: id
+        description: Unique identifier for the Netatmo main module
+        tests: [not_null]
+      - name: name
+        description: Name of the Netatmo main module
+        tests: [not_null]
+      - name: home_id
+        description: Identifier of the home to which the module belongs
+        tests: [not_null]
+      - name: type
+        description: Type of the Netatmo module
+        tests: [not_null]
+      - name: initial_setup_time
+        description: Timestamp of the initial setup of the module
+        tests: [not_null]
+      - name: latest_setup_modified_time
+        description: Timestamp of the latest setup modification of the module
+        tests: [not_null]
+      - name: is_reachable
+        description: Indicates if the module is currently reachable
+        tests: [not_null]
+      - name: is_co2_calibrating
+        description: Indicates if the CO2 sensor is currently calibrating
+        tests: [not_null]
+      - name: latest_update_time
+        description: Timestamp of the latest status update of the module
+        tests: [not_null]
+      - name: wifi_strength
+        description: Strength of the Wi-Fi signal for the module
+        tests: [not_null]
+      - name: firmware_version
+        description: Firmware version of the module
+        tests: [not_null]
+      - name: sdp_metadata
+        description: SPalojoki Dataplatform metadata
+        tests: [not_null]
+  - name: ref_netatmo_sub_modules
+    columns:
+      - name: id
+        description: Unique identifier for the Netatmo sub-module
+        tests: [not_null]
+      - name: name
+        description: Name of the Netatmo sub-module
+        tests: [not_null]
+      - name: main_module_id
+        description: Identifier of the main module to which the sub-module belongs
+        tests: [not_null]
+      - name: type
+        description: Type of the Netatmo sub-module
+        tests: [not_null]
+      - name: latest_setup_modified_time
+        description: Timestamp of the latest setup modification of the sub-module
+        tests: [not_null]
+      - name: latest_message_time
+        description: Timestamp of the latest message received from the sub-module
+        tests: [not_null]
+      - name: last_seen_time
+        description: Timestamp of the last time the sub-module was seen
+        tests: [not_null]
+      - name: is_reachable
+        description: Indicates if the sub-module is currently reachable
+        tests: [not_null]
+      - name: battery_percentage
+        description: Battery percentage of the sub-module
+        tests: [not_null]
+      - name: battery_voltage
+        description: Battery voltage of the sub-module
+        tests: [not_null]
+      - name: rf_strength
+        description: RF signal strength for the sub-module
+        tests: [not_null]
+      - name: firmware_version
+        description: Firmware version of the sub-module
+        tests: [not_null]
+      - name: sdp_metadata
+        description: SPalojoki Dataplatform metadata
+        tests: [not_null]
+  - name: ref_netatmo_sensor_readings
+    columns:
+      - name: module_id
+        description: Unique identifier for the Netatmo module
+        tests: [not_null]
+      - name: measurement_time
+        description: Timestamp of the sensor reading
+        tests: [not_null]
+      - name: temperature
+        description: Temperature reading from the sensor in degrees Celsius
+      - name: humidity
+        description: Humidity reading from the sensor in percentage
+      - name: gust_angle
+        description: Gust wind direction in degrees
+      - name: gust_strength
+        description: Gust wind strength in km/h
+      - name: wind_angle
+        description: Wind direction in degrees
+      - name: wind_strength
+        description: Wind strength in km/h
+      - name: absolute_pressure
+        description: Absolute atmospheric pressure in mbar
+      - name: co2
+        description: CO2 level in ppm
+      - name: noise
+        description: Noise level in dB
+      - name: pressure
+        description: Relative atmospheric pressure in mbar
+      - name: sdp_metadata
+        description: SPalojoki Dataplatform metadata
+        tests: [not_null]
