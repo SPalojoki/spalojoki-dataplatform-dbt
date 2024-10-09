@@ -1,0 +1,4 @@
+dbt-bigquery
+sqlfluff
+sqlfluff-templater-dbt
+pre-commit

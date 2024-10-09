@@ -135,9 +135,9 @@ dbt run --select +my_model
 
     Ensure the venv directory is excluded in `.gitignore` if stored in the project root.
 
-2. **Install dbt-core and dbt-bigquery Adapter**
+2. **Install necessary dependencies**
     ```sh
-    python -m pip install dbt-bigquery
+    pip install -r requirements.txt
     ```
 
 3. **Configure `profiles.yml`**
@@ -165,10 +165,16 @@ dbt run --select +my_model
 4. **Check Configuration**
     Run `dbt debug` to verify the configuration.
 
-5. **Optional: Install dbt Power User VS Code Plugin**
+5. **Setup the linting pre-commit hook**
+
+    ```sh
+    pre-commit install
+    ```
+
+6. **Optional: Install dbt Power User VS Code Plugin**
     For lineage and other features.
 
-### Production Deployment
+## Production Deployment
 
 Daily production builds are orchestrated using Airflow, with the DAGs defined in the spalojoki-dataplatform-composer repository. The production environment `dbt profile` is stored in `prod_profile` directory of this repository.
 
