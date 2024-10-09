@@ -27,9 +27,9 @@ with_formatted_time as (
     * except (
       initial_setup_time, latest_setup_modified_time, latest_update_time
     ),
-    TIMESTAMP_SECONDS(initial_setup_time) as initial_setup_time,
-    TIMESTAMP_SECONDS(latest_setup_modified_time) as latest_setup_modified_time,
-    TIMESTAMP_SECONDS(latest_update_time) as latest_update_time
+    timestamp_seconds(initial_setup_time) as initial_setup_time,
+    timestamp_seconds(latest_setup_modified_time) as latest_setup_modified_time,
+    timestamp_seconds(latest_update_time) as latest_update_time
   from renamed
 )
 
