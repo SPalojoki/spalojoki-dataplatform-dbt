@@ -7,8 +7,8 @@ electricity_prices as (
 
 only_start_time as (
   select
-    period_start_date as date,
-    extract(hour from period_start_time) as hour,
+    period_start_date as price_date,
+    extract(hour from period_start_time) as price_hour,
     price,
     sdp_metadata
   from
@@ -16,8 +16,8 @@ only_start_time as (
 )
 
 select
-  * except (sdp_metadata),
-  {{ cast_published_at('sdp_metadata') }}
+  * except (sdp_metadata)
+  , {{ cast_published_at('sdp_metadata') }}
 from
   only_start_time
-order by date desc, hour desc
+order by price_date desc, price_hour desc

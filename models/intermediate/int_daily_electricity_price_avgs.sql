@@ -7,9 +7,9 @@ electricity_prices as (
 
 with_time_of_day as (
   select
-    period_start_date as date,
+    period_start_date as price_date,
     case
-      when extract (hour from period_start_time) between 0 and 7 then 'night'
+      when extract(hour from period_start_time) between 0 and 7 then 'night'
       else 'day'
     end as time_of_day,
     price,
@@ -19,16 +19,15 @@ with_time_of_day as (
 
 averages as (
   select
-    date,
+    price_date,
     round(avg(price), 2) as avg_total,
     round(avg(case when time_of_day = 'day' then price end), 2) as avg_day,
     round(avg(case when time_of_day = 'night' then price end), 2) as avg_night,
     count(*) as num_records,
     any_value(sdp_metadata) as sdp_metadata
   from with_time_of_day
-  group by date
+  group by price_date
 )
 
-select
-  *
+select *
 from averages

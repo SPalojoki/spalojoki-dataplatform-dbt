@@ -26,6 +26,6 @@ with_separated_datetimes as (
 )
 
 select
-  * except(sdp_metadata),
-  {{ cast_refined_at('sdp_metadata') }}
+  * except (sdp_metadata)
+  , {{ cast_refined_at('sdp_metadata') }}
 from with_separated_datetimes

@@ -8,14 +8,19 @@ electricity_prices as (
 with_loaded_at as (
   select
     *,
-    PARSE_TIMESTAMP('%Y-%m-%dT%H:%M:%E6S%Ez', JSON_EXTRACT_SCALAR(sdp_metadata, '$.loaded_at')) AS loaded_at
+    parse_timestamp(
+      '%Y-%m-%dT%H:%M:%E6S%Ez',
+      json_extract_scalar(sdp_metadata, '$.loaded_at')
+    ) as loaded_at
   from electricity_prices
 ),
 
 with_sequence_no as (
   select
     *,
-    row_number() over (partition by start_date, end_date order by loaded_at desc) as sequence_no,
+    row_number()
+      over (partition by start_date, end_date order by loaded_at desc)
+      as sequence_no
   from with_loaded_at
 ),
 
@@ -25,6 +30,5 @@ only_latest as (
   where sequence_no = 1
 )
 
-select
-  * EXCEPT(sequence_no, loaded_at)
+select * except (sequence_no, loaded_at)
 from only_latest

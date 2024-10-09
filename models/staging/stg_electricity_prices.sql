@@ -6,7 +6,7 @@ source as (
     end_date,
     price,
     sdp_metadata
-  from {{ source('sdp_landing', 'electricity_prices')}}
+  from {{ source('sdp_landing', 'electricity_prices') }}
 )
 
 select * from source
